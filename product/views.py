@@ -18,6 +18,15 @@ class Producdetail(DetailView):
         context["related_products"]= Product.objects.filter(brand=self.get_object().brand)
         return context
 
-
 class Brandlist(ListView):
     model=Brand
+    
+class Branddetail(ListView):
+    model=Product
+    template_name = 'product/brand_detail.html'
+    paginate_by= 20 
+
+    def get_queryset(self):
+        brand=Brand.objects.get(slug=self.kwargs['slug'])
+        return super().get_queryset().filter(brand=brand)
+    
