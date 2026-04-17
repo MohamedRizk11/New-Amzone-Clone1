@@ -62,14 +62,14 @@
                         <div class="col all vegetables">
                             <div class="brand-wrap">
                                 <div class="brand-media">
-                                    <img src="{{ brand.image.url }}" alt="brand">
+                                    <img src="{{ brand.image.url }}" alt="brand"width="450" height="550">
                                     <div class="brand-overlay">
-                                        <a href="brand-single.html"><i class="fas fa-link"></i></a>
+                                        <a href="/products/brands/{{brand.slug}}"><i class="fas fa-link"></i></a>
                                     </div>
                                 </div>
                                 <div class="brand-meta">
                                     <h4>{{ brand.name }}</h4>
-                                    <p>({{ brand.product_brand.count }} items)</p>
+                                    <p>({{ brand.products_count }} items)</p>
                                 </div>
                             </div>
                         </div>
