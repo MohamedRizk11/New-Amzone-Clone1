@@ -23,6 +23,7 @@ class Producdetail(DetailView):
 class Brandlist(ListView):
     model=Brand
     queryset=Brand.objects.annotate(products_count=Count('product_brand'))
+    paginate_by= 20
     
 class Branddetail(ListView):
     model=Product
