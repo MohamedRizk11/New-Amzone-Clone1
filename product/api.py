@@ -3,6 +3,7 @@ from .myfilter import myfilter
 from .mypagination import mypagination
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend 
 from .models import Product ,Brand,Review
 from django.db.models.aggregates import Avg
@@ -33,6 +34,7 @@ class productlistapi(generics.ListCreateAPIView):
     ordering_fields = ['price', 'sku']
     filterset_class= myfilter
     pagination_class = mypagination
+    permission_classes = [IsAuthenticated]
 class productdetailapi(generics.RetrieveUpdateDestroyAPIView):
     queryset=Product.objects.all()
     serializer_class= productdetailserializers
