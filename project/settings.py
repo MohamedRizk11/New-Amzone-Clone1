@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'setting',
     "rest_framework",
     'django_filters',
-    'rest_framework.authtoken'    
+    'rest_framework.authtoken'  ,
+    'orders'  
 
     
 ]
@@ -85,6 +86,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'setting.company_context_prosssor.company_context_processor',
+                'orders.cart_context_prosessor.get_create_cart',
             ],
         },
     },
