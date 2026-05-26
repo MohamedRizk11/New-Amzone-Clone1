@@ -6,7 +6,7 @@ from .models import order
 
 class orderlist(ListView):
     model= order
-
+    paginate_by= 10
     def get_queryset(self):
         queryset = super().get_queryset().filter(user=self.request.user)
 
