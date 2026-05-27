@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <html lang="en">
     <head>
         <!--=====================================
@@ -29,22 +30,30 @@
         <!--=====================================
                     CSS LINK PART START
         =======================================-->
-        <!-- FAVICON -->
-        <link rel="icon" href="{% static 'en/images/favicon.png' %}">
+        
+        {% if LANGUAGE_CODE == 'en' %}
+            <link rel="icon" href="{% static 'en/images/1.png' %}">
+            <link rel="stylesheet" href="{% static 'en/fonts/flaticon/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'en/fonts/icofont/icofont.min.css' %}">
+            <link rel="stylesheet" href="{% static 'en/fonts/fontawesome/fontawesome.min.css' %}">
+            <link rel="stylesheet" href="{% static 'en/vendor/venobox/venobox.min.css' %}">
+            <link rel="stylesheet" href="{% static 'en/vendor/slickslider/slick.min.css' %}">
+            <link rel="stylesheet" href="{% static 'en/vendor/niceselect/nice-select.min.css' %}">
+            <link rel="stylesheet" href="{% static 'en/vendor/bootstrap/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{% static 'en/css/main.css' %}">    
+        {% else %}    
+            <link rel="icon" href="{% static 'ar/images/1.png' %}">
+            <link rel="stylesheet" href="{% static 'ar/fonts/flaticon/flaticon.css' %}">
+            <link rel="stylesheet" href="{% static 'ar/fonts/icofont/icofont.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ar/fonts/fontawesome/fontawesome.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ar/vendor/venobox/venobox.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ar/vendor/slickslider/slick.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ar/vendor/niceselect/nice-select.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ar/vendor/bootstrap/bootstrap.min.css' %}">
+            <link rel="stylesheet" href="{% static 'ar/css/main.css' %}">
+        {% endif %}
+            
 
-        <!-- FONTS -->
-        <link rel="stylesheet" href="{% static 'en/fonts/flaticon/flaticon.css' %}">
-        <link rel="stylesheet" href="{% static 'en/fonts/icofont/icofont.min.css' %}">
-        <link rel="stylesheet" href="{% static 'en/fonts/fontawesome/fontawesome.min.css' %}">
-
-        <!-- VENDOR -->
-        <link rel="stylesheet" href="{% static 'en/vendor/venobox/venobox.min.css' %}">
-        <link rel="stylesheet" href="{% static 'en/vendor/slickslider/slick.min.css' %}">
-        <link rel="stylesheet" href="{% static 'en/vendor/niceselect/nice-select.min.css' %}">
-        <link rel="stylesheet" href="{% static 'en/vendor/bootstrap/bootstrap.min.css' %}">
-
-        <!-- CUSTOM -->
-        <link rel="stylesheet" href="{% static 'en/css/main.css' %}">
         
         {% block css %}
             <link rel="stylesheet" href="{% static 'en/css/index.css' %}">  
@@ -165,18 +174,18 @@
                         <div class="navbar-content">
                             <ul class="navbar-list">
                                 <li class="navbar-item ">
-                                    <a class="navbar-link" href="/">home</a>
+                                    <a class="navbar-link" href="/">{% translate "Home" %}</a>
                                 
                                 </li>
                                 <li class="navbar-item ">
-                                    <a class="navbar-link" href="/products">shop</a>
+                                    <a class="navbar-link" href="/products">{% translate "Shop" %}</a>
                                 </li>
                                 <li class="navbar-item ">
-                                    <a class="navbar-link" href="/products/brands/">Brands</a>
+                                    <a class="navbar-link" href="/products/brands/">{% translate "Brands" %}</a>
                               
                                 </li>
                                 <li class="navbar-item ">
-                                    <a class="navbar-link" href="/orders">Orders</a>
+                                    <a class="navbar-link" href="/orders">{% translate "Orders" %}</a>
                                 </li>
 
                             </ul>
