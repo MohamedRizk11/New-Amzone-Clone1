@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('setting.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
     path("i18n/", include("django.conf.urls.i18n")),
+    path('rosetta/', include('rosetta.urls')),
 
 ]
 urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
